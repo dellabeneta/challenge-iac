@@ -1,5 +1,7 @@
 [![Terraform Apply](https://github.com/dellabeneta/challenge-iac/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/dellabeneta/challenge-iac/actions/workflows/main.yml)
 
+<img src="https://drive.google.com/uc?export=view&id=1jwpV_Q0bCWpo4LXJy2q1BMgh7zEVRqj3" width="1000">
+
 # Automação com Terraform
 
 ## Objetivo do projeto
