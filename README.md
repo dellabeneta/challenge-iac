@@ -1,60 +1,36 @@
-[![Terraform Apply](https://github.com/dellabeneta/challenge-iac/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/dellabeneta/challenge-iac/actions/workflows/main.yml)
+## Requirements
 
-<img src="https://drive.google.com/uc?export=view&id=1jwpV_Q0bCWpo4LXJy2q1BMgh7zEVRqj3" width="1000">
+| Name | Version |
+|------|---------|
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 5.48.0 |
 
-# Automação com Terraform
+## Providers
 
-## Objetivo do projeto
+No providers.
 
-Automatizar o processo de criação e manutenção do ambiente AWS EKS: solução de infraestrutura escolhida para suportar a aplicação.
+## Modules
 
-## Premissas do Projeto
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_vpc"></a> [vpc](#module\_vpc) | terraform-aws-modules/vpc/aws | 5.8.1 |
 
-Para o desenvolvimento do projeto, foram levantadas as seguintes premissas:
+## Resources
 
-+ Utilizar o Terraform como ferramenta de infraestrutura como código.
-+ O cluster Kubernetes deve ser criado utilizando o serviço Elastic Kubernetes Service (EKS) da AWS.
-+ O projeto deve ser o mais simples e reaproveitável possível. 
-+ Toda vez que houver alteração no código Terraform na branch main do repositório, a pipeline deve ser executada.
-+ Só vai haver um ambiente Kubernetes.
+No resources.
 
-## Tecnologias utilizadas no projeto
+## Inputs
 
-+ [AWS](https://aws.amazon.com)
-   + [S3](https://aws.amazon.com/s3)
-   +  [EKS](https://aws.amazon.com/eks)
-+ [AWS CLI](https://aws.amazon.com/cli/)
-+ [Terraform](https://www.terraform.io)
-    + [AWS Provider](https://registry.terraform.io/providers/hashicorp/aws)
-    + [AWS VPC Terraform module](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws)
-    + [AWS EKS Terraform module](https://registry.terraform.io/modules/terraform-aws-modules/eks/aws)
-+ [GitHub](https://github.com)
-    + [GitHub Actions](https://github.com/features/actions)
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_aws_eks_managed_node_groups_instance_types"></a> [aws\_eks\_managed\_node\_groups\_instance\_types](#input\_aws\_eks\_managed\_node\_groups\_instance\_types) | Os tipos de instância para os grupos de nós gerenciados do EKS | `set(string)` | n/a | yes |
+| <a name="input_aws_eks_name"></a> [aws\_eks\_name](#input\_aws\_eks\_name) | O nome do cluster EKS | `string` | n/a | yes |
+| <a name="input_aws_eks_version"></a> [aws\_eks\_version](#input\_aws\_eks\_version) | A versão do Kubernetes para o cluster EKS | `string` | n/a | yes |
+| <a name="input_aws_project_tags"></a> [aws\_project\_tags](#input\_aws\_project\_tags) | As tags do projeto AWS | `map(any)` | n/a | yes |
+| <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | n/a | `string` | `"sa-east-1"` | no |
+| <a name="input_aws_vpc_azs"></a> [aws\_vpc\_azs](#input\_aws\_vpc\_azs) | As zonas de disponibilidade onde a VPC será distribuída | `set(string)` | n/a | yes |
+| <a name="input_aws_vpc_cidr"></a> [aws\_vpc\_cidr](#input\_aws\_vpc\_cidr) | O bloco CIDR da VPC | `string` | n/a | yes |
+| <a name="input_aws_vpc_name"></a> [aws\_vpc\_name](#input\_aws\_vpc\_name) | O nome da VPC para criar | `string` | n/a | yes |
+| <a name="input_aws_vpc_private_subnets"></a> [aws\_vpc\_private\_subnets](#input\_aws\_vpc\_private\_subnets) | Os CIDRs das sub-redes privadas da VPC | `set(string)` | n/a | yes |
+| <a name="input_aws_vpc_public_subnets"></a> [aws\_vpc\_public\_subnets](#input\_aws\_vpc\_public\_subnets) | Os CIDRs das sub-redes públicas da VPC | `set(string)` | n/a | yes |
 
-## Motivações para o uso de cada tecnologia
-
-+ **EKS** - Requisito do projeto.
-+ **S3** - Foi adotado para armazenar o estado atual do projeto Terraform. Foi definido o seu uso por ser um serviço da própria AWS e ter controle de versionamento dos arquivos.
-+ **GitHub Actions** - Requisito do projeto.
-
-## Instruções para executar
-
-A pipeline de criação ou atualização do projeto é executada sempre que o código Terraform do projeto for alterado na branch main.
-
-## Configurações 
-As variáveis de configuração do projeto estão no arquivo terraform.tfvars, exceto as variáveis consideradas sensiveis que estão no gerenciador de secrets do GitHub Actions.
-
-**Variáveis armazendas em secrets:**
-
-AWS_ACCESS_KEY_ID => Access Key utilizada para configurar o AWS CLI.
-
-AWS_SECRET_ACCESS_KEY => Secret access Key utilizada para configurar o AWS CLI.
-
-Explicação do Fluxo
-
-## Possíveis evoluções do projeto
-
-Algumas evoluções que sugiro para o projeto:
-
-+ Separar ambientes dev, homolog e prod utilizando o Terraform Workspace ou Terraform Grunt para criação e gerenciamento desses ambientes.
-+ Usar o DynamoDB junto com o S3 para evitar execução paralela do Terraform.
+## Outputs
