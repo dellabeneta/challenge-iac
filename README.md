@@ -52,9 +52,15 @@ AWS_SECRET_ACCESS_KEY => Secret access Key utilizada para configurar o AWS CLI.
 
 Explicação do Fluxo
 
+## Diagrama de Infraestrutura
+
+<img src="https://drive.google.com/uc?export=view&id=1xQCEVCyPGW5GJfkJ8F6zJH-oqpn-bb5l">
+
 ## Possíveis evoluções do projeto
 
 Algumas evoluções que sugiro para o projeto:
 
 + Separar ambientes dev, homolog e prod utilizando o Terraform Workspace ou Terraform Grunt para criação e gerenciamento desses ambientes.
 + Usar o DynamoDB junto com o S3 para evitar execução paralela do Terraform.
+
+
