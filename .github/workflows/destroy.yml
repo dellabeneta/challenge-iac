@@ -1,0 +1,27 @@
+name: "Terraform Destroy"
+
+on:
+  workflow_dispatch: 
+
+jobs:
+  terraform:
+    name: "Terraform destroy"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configura as Credenciais da AWS
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: sa-east-1
+
+      - name: Terraform Init
+        working-directory: ./
+        run: terraform init 
+
+      - name: Terraform Destroy
+        working-directory: ./
+        run: terraform destroy --auto-approve
