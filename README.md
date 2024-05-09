@@ -1,3 +1,7 @@
+<a align="left" style="margin-right:20px" href="https://github.com/dellabeneta/ntconsult-iac-api-foundation/actions/workflows/main.yaml">
+    <img src="https://github.com/dellabeneta/challenge-iac/actions/workflows/main.yaml/badge.svg" alt="Deploy Terraform IaC"/>
+</a>
+</div>
 
 # Automação com Terraform
 
