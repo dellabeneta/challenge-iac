@@ -1,7 +1,6 @@
-<a align="left" style="margin-right:20px" href="https://github.com/dellabeneta/challenge-iac/actions/workflows/main.yaml">
-    <img src="https://github.com/dellabeneta/challenge-iac/actions/workflows/main.yaml/badge.svg" alt="Deploy Terraform IaC"/>
-</a>
-</div>
+
+
+[![Terraform Apply](https://github.com/dellabeneta/challenge-iac/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/dellabeneta/challenge-iac/actions/workflows/main.yml)
 
 # Automação com Terraform
 
